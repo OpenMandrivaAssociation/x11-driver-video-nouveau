@@ -2,7 +2,7 @@
 %define name	x11-driver-video-nouveau
 %define upname	xf86-video-nouveau
 %define version	0
-%define snapshot 20080102
+%define snapshot	20080111
 %define rel	1
 
 %define release %mkrel 0.%snapshot.%rel
@@ -16,8 +16,6 @@ URL:		http://nouveau.freedesktop.org/
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | bzip2 > ../xf86-video-nouveau-$(date +%Y%m%d).tar.bz2
 Source:		%{upname}-%{snapshot}.tar.bz2
-# Just committed cosmetic change that broke the build:
-Patch0:		nouveau-revert-cosmetic.patch
 License:	MIT
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	drm-nouveau-devel
@@ -37,7 +35,6 @@ dkms-drm-experimental.
 
 %prep
 %setup -q -n %{upname}-%{snapshot}
-%patch0 -p1 -R
 
 %build
 autoreconf -v --install
