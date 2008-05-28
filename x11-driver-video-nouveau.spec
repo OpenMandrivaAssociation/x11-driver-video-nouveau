@@ -30,7 +30,7 @@ Requires: kmod(nouveau)
 %description
 x11-driver-video-nouveau is the experimental X.org driver for NVIDIA cards.
 
-The nouveau kernel module is also required, available in package.
+The nouveau kernel module is also required, available in package
 dkms-drm-experimental.
 
 %prep
