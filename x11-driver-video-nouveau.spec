@@ -28,7 +28,7 @@ Conflicts: xorg-x11-server < 7.0
 Requires: kmod(nouveau)
 
 %description
-The experimental X.org driver for NVIDIA cards.
+x11-driver-video-nouveau is the experimental X.org driver for NVIDIA cards.
 
 The nouveau kernel module is also required, available in package.
 dkms-drm-experimental.
