@@ -30,7 +30,7 @@ Requires: kmod(nouveau)
 %description
 The experimental X.org driver for NVIDIA cards.
 
-The nouveau kernel module is also required, available in package
+The nouveau kernel module is also required, available in package.
 dkms-drm-experimental.
 
 %prep
