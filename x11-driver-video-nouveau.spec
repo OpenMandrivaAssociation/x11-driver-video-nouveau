@@ -2,7 +2,7 @@
 %define name	x11-driver-video-nouveau
 %define upname	xf86-video-nouveau
 %define version	0
-%define snapshot	20080509
+%define snapshot	20080605
 %define rel	1
 
 %define release %mkrel 0.%snapshot.%rel
@@ -16,6 +16,9 @@ URL:		http://nouveau.freedesktop.org/
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | bzip2 > ../xf86-video-nouveau-$(date +%Y%m%d).tar.bz2
 Source:		%{upname}-%{snapshot}.tar.bz2
+# (Anssi 05/2008) Do not fail on unknown LVDS bits if the bits are those that
+# have already been reported here: http://bugs.freedesktop.org/show_bug.cgi?id=15502
+Patch0:		nouveau-skip-failing-on-reported-bits.patch
 License:	MIT
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	drm-nouveau-devel
@@ -35,6 +38,7 @@ dkms-drm-experimental.
 
 %prep
 %setup -q -n %{upname}-%{snapshot}
+%patch0 -p1
 
 %build
 autoreconf -v --install
