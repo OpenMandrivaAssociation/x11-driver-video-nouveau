@@ -1,7 +1,7 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
 %define version		0
-%define snapshot	20090530
+%define snapshot	20090724
 %define rel		1
 
 %define release %mkrel 0.%{snapshot}.%{rel}
@@ -16,12 +16,16 @@ URL:		http://nouveau.freedesktop.org/
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | bzip2 > ../xf86-video-nouveau-$(date +%Y%m%d).tar.bz2
 Source0:	%{upname}-%{snapshot}.tar.bz2
-BuildRequires:	libdrm-devel >= 2.4.5
+BuildRequires:	libdrm-devel >= 2.4.12
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.0.1
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	GL-devel
 Conflicts:	xorg-x11-server < 7.0
+# No DKMS package for now; nouveau module is in main kernel.
+# If needed, DKMS package may be resurrected, but work is needed to make it
+# build with the new linux-2.6 tree of nouveau.
+Obsoletes:	dkms-nouveau < 0.0.13-0.20090600
 Requires:	kmod(nouveau)
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
