@@ -1,7 +1,7 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
 %define version		0.0.10
-%define snapshot	20090913
+%define snapshot	20090921
 %define rel		2
 
 %define release %mkrel 0.%{snapshot}.%{rel}
