@@ -1,8 +1,8 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
-%define version		0.0.10
-%define snapshot	20090921
-%define rel		2
+%define version		0.0.15
+%define snapshot	20090926
+%define rel		1
 
 %define release %mkrel 0.%{snapshot}.%{rel}
 
@@ -19,6 +19,8 @@ Source0:	%{upname}-%{snapshot}.tar.xz
 Patch0:		nouveau-store-vbios.patch
 Patch1:		dcbconf_7_4_ignore.patch
 Patch2:		nouveau-bgnr.patch
+Patch3:		nouveau-bicubic-2x.patch
+Patch4:		nouveau-multiple-xserver.patch
 BuildRequires:	libdrm-devel >= 2.4.12-2
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.0.1
@@ -44,13 +46,14 @@ dkms-drm-experimental.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 autoreconf -v --install
 %configure2_5x \
 	--disable-static \
 	--with-kms=yes
-
 
 %make
 
