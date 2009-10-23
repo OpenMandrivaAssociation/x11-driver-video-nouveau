@@ -1,7 +1,7 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
 %define version		0.0.15
-%define snapshot	20090926
+%define snapshot	20091024
 %define rel		1
 
 %define release %mkrel 0.%{snapshot}.%{rel}
@@ -14,7 +14,7 @@ Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
-# git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.bz2
+# git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
 Patch0:		nouveau-store-vbios.patch
 Patch1:		dcbconf_7_4_ignore.patch
@@ -36,10 +36,8 @@ Requires:	kmod(nouveau)
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-x11-driver-video-nouveau is the experimental X.org driver for NVIDIA cards.
-
-The nouveau kernel module is also required, available in package
-dkms-drm-experimental.
+The nouveau project aims to build high-quality, 
+open source drivers for nVidia cards.
 
 %prep
 %setup -q -n %{upname}-%{snapshot}
