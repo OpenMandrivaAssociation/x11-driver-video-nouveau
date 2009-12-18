@@ -2,7 +2,7 @@
 %define upname		xf86-video-nouveau
 %define version		0.0.15
 %define snapshot	20091204
-%define rel		1
+%define rel		2
 
 %define release %mkrel 0.%{snapshot}.%{rel}
 
@@ -33,6 +33,7 @@ Conflicts:	xorg-x11-server < 7.0
 # build with the new linux-2.6 tree of nouveau.
 Obsoletes:	dkms-nouveau < 0.0.13-0.20090600
 Requires:	kmod(nouveau)
+Requires:	nouveau-firmware
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
