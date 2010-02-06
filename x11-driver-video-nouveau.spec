@@ -1,7 +1,7 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
 %define version		0.0.15
-%define snapshot	20091221
+%define snapshot	20100206
 %define rel		1
 
 %define release %mkrel 0.%{snapshot}.%{rel}
@@ -16,9 +16,6 @@ URL:		http://nouveau.freedesktop.org/
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
-Patch1:		dcbconf_7_4_ignore.patch
-Patch2:		nouveau-bgnr.patch
-Patch4:		nouveau-multiple-xserver.patch
 BuildRequires:	libdrm-devel >= 2.4.16
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.0.1
@@ -39,16 +36,10 @@ for NVIDIA cards.
 
 %prep
 %setup -q -n %{upname}-%{snapshot}
-%patch1 -p1
-%patch2 -p1
-%patch4 -p1
 
 %build
 autoreconf -v --install
-%configure2_5x \
-	--disable-static \
-	--with-kms=yes
-
+%configure2_5x 
 %make
 
 %install
