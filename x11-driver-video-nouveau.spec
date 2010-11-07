@@ -2,7 +2,7 @@
 %define upname		xf86-video-nouveau
 %define version		0.0.16
 %define snapshot	20100816
-%define rel		2
+%define rel		3
 
 %define release %mkrel 0.%{snapshot}.%{rel}
 
@@ -28,6 +28,7 @@ Conflicts:	xorg-x11-server < 7.0
 # build with the new linux-2.6 tree of nouveau.
 Obsoletes:	dkms-nouveau < 0.0.13-0.20090600
 Requires:	kmod(nouveau)
+Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
 # No firmware needed:
 Obsoletes:	nouveau-firmware < 20091212-2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
