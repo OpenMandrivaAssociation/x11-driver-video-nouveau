@@ -2,7 +2,7 @@
 %define upname		xf86-video-nouveau
 %define version		0.0.16
 %define snapshot	20110415
-%define rel		1
+%define rel		2
 
 %define release %mkrel 0.%{snapshot}.%{rel}
 
