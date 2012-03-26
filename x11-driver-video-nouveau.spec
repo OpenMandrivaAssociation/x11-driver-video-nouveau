@@ -1,8 +1,8 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
 %define version		0.0.16
-%define snapshot	20110613
-%define rel		3
+%define snapshot	20120322
+%define rel		1
 
 %define release %mkrel 0.%{snapshot}.%{rel}
 
@@ -15,7 +15,7 @@ License:	MIT
 URL:		http://nouveau.freedesktop.org/
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
-Source0:	%{upname}-%{snapshot}.tar.xz
+Source0:	%{upname}-%{version}_pre%{snapshot}.tar.bz2
 BuildRequires:	libdrm-devel >= 2.4.24-3
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.0.1
@@ -38,7 +38,8 @@ The nouveau project aims to build high-quality, open source drivers
 for NVIDIA cards.
 
 %prep
-%setup -q -n %{upname}-%{snapshot}
+#xf86-video-nouveau-0.0.16_pre20120322/
+%setup -q -n %{upname}-%{version}_pre%{snapshot}
 grep -q %{version} configure.ac
 
 %build
