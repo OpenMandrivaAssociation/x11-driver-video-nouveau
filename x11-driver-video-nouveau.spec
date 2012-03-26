@@ -31,7 +31,6 @@ Requires:	kmod(nouveau)
 Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
 # No firmware needed:
 Obsoletes:	nouveau-firmware < 20091212-2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 The nouveau project aims to build high-quality, open source drivers
@@ -48,14 +47,8 @@ autoreconf -v --install
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
-%{_libdir}/xorg/modules/drivers/nouveau_drv.la
 %{_libdir}/xorg/modules/drivers/nouveau_drv.so
 %{_mandir}/man4/nouveau*
