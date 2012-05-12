@@ -1,8 +1,8 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
 %define version		0.0.16
-%define snapshot	20120322
-%define rel		2
+%define snapshot	20120508
+%define rel		1
 
 %define release %mkrel 0.%{snapshot}.%{rel}
 
@@ -22,6 +22,8 @@ BuildRequires:	x11-server-devel >= 1.12
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	GL-devel
 BuildRequires:	udev-devel
+BuildRequires:	libdrm-devel
+BuildRequires:	libdrm-common
 Conflicts:	xorg-x11-server < 7.0
 # No DKMS package for now; nouveau module is in main kernel.
 # If needed, DKMS package may be resurrected, but work is needed to make it
