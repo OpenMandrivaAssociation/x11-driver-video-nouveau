@@ -1,7 +1,7 @@
 %define name		x11-driver-video-nouveau
 %define upname		xf86-video-nouveau
-%define version		0.0.16
-%define snapshot	20120508
+%define version		1.0.0
+%define snapshot	20120619
 %define rel		1
 
 %define release %mkrel 0.%{snapshot}.%{rel}
@@ -15,7 +15,7 @@ License:	MIT
 URL:		http://nouveau.freedesktop.org/
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
-Source0:	%{upname}-%{version}_pre%{snapshot}.tar.bz2
+Source0:	%{upname}-%{snapshot}.tar.xz
 BuildRequires:	libdrm-devel >= 2.4.24-3
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.12
@@ -40,11 +40,11 @@ for NVIDIA cards.
 
 %prep
 #xf86-video-nouveau-0.0.16_pre20120322/
-%setup -q -n %{upname}-%{version}_pre%{snapshot}
-grep -q %{version} configure.ac
+%setup -q -n %{upname}-%{snapshot}
+#grep -q %{version} configure.ac
 
 %build
-autoreconf -v --install
+./autogen.sh
 %configure2_5x
 %make
 
