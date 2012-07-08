@@ -1,6 +1,6 @@
 %define upname		xf86-video-nouveau
 %define snapshot	%nil
-%define rel		1
+%define rel		2
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
@@ -22,7 +22,11 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.12
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	GL-devel
-BuildRequires:	udev-devel
+%if %mdvver >= 201200
+BuildRequires:	pkgconfig(udev) >= 186
+%else
+BuildRequires:	pkgconfig(udev)
+%endif
 BuildRequires:	libdrm-devel
 BuildRequires:	libdrm-common
 Conflicts:	xorg-x11-server < 7.0
