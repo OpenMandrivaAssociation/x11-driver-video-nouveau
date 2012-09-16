@@ -1,10 +1,10 @@
 %define upname		xf86-video-nouveau
 %define snapshot	%nil
-%define rel		2
+%define rel		1
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.1
+Version:	1.0.2
 %if "%snapshot" == ""
 Release:	%rel
 Source0:	http://nouveau.freedesktop.org/release/%{upname}-%{version}.tar.bz2
