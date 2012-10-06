@@ -19,7 +19,7 @@ License:	MIT
 URL:		http://nouveau.freedesktop.org/
 BuildRequires:	libdrm-devel >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
-BuildRequires:	pkgconfig(x11-server) >= 1.13
+BuildRequires:	pkgconfig(xorg-server) >= 1.13
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	GL-devel
 %if %mdvver >= 201200
