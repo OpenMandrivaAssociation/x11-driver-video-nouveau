@@ -1,13 +1,13 @@
 %define upname		xf86-video-nouveau
 %define snapshot	%nil
-%define rel		2
+%define rel		1
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.2
+Version:	1.0.4
 %if "%snapshot" == ""
 Release:	%rel
-Source0:	http://nouveau.freedesktop.org/release/%{upname}-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
 %else
 Release:	0.%snapshot.%rel
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
@@ -19,7 +19,7 @@ License:	MIT
 URL:		http://nouveau.freedesktop.org/
 BuildRequires:	libdrm-devel >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
-BuildRequires:	pkgconfig(xorg-server) >= 1.13
+BuildRequires:	x11-server-devel >= 1.12
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	GL-devel
 %if %mdvver >= 201200
@@ -38,6 +38,7 @@ Requires:	kmod(nouveau)
 Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
 # No firmware needed:
 Obsoletes:	nouveau-firmware < 20091212-2
+Patch0:		disable_libdrv_version_check.patch
 
 %description
 The nouveau project aims to build high-quality, open source drivers
@@ -50,9 +51,11 @@ for NVIDIA cards.
 %setup -q -n %upname-%version
 %endif
 [ -e autogen.sh ] && ./autogen.sh
+%patch0 -p1
 
 %build
-%configure2_5x
+autoreconf -v --install --force
+%configure2_5x --disable-dependency-tracking
 %make
 
 %install
