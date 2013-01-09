@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   xf86-video-nouveau-1.0.4.tar.bz2: 68d4aa7269f3570938698f6a08b2640626193ea6
+sources:
+  xf86-video-nouveau-1.0.6.tar.bz2: 602f47934f303e5b93ac25d91987d7519c6d80ab

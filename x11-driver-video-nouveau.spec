@@ -4,7 +4,7 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.4
+Version:	1.0.6
 %if "%snapshot" == ""
 Release:	%rel
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
