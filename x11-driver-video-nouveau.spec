@@ -24,6 +24,7 @@ BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	GL-devel
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
+Requires:		udev
 %else
 BuildRequires:	pkgconfig(udev)
 %endif
