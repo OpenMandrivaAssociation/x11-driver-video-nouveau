@@ -53,9 +53,9 @@ for NVIDIA cards.
 %endif
 [ -e autogen.sh ] && ./autogen.sh
 %patch0 -p1
+autoreconf -vif
 
 %build
-autoreconf -v --install --force
 %configure2_5x --disable-dependency-tracking
 %make
 
