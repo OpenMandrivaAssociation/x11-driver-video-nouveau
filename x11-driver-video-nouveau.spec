@@ -1,6 +1,6 @@
-%define upname		xf86-video-nouveau
-%define snapshot	%nil
-%define rel		1
+%define upname xf86-video-nouveau
+%define snapshot %nil
+%define rel 2
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
@@ -36,7 +36,7 @@ Conflicts:	xorg-x11-server < 7.0
 # build with the new linux-2.6 tree of nouveau.
 Obsoletes:	dkms-nouveau < 0.0.13-0.20090600
 Requires:	kmod(nouveau)
-Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
+Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 # No firmware needed:
 Obsoletes:	nouveau-firmware < 20091212-2
 Patch0:		disable_libdrv_version_check.patch
