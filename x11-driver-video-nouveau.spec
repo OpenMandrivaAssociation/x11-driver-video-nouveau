@@ -4,7 +4,7 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.7
+Version:	1.0.8
 %if "%snapshot" == ""
 Release:	%rel
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
@@ -21,7 +21,7 @@ BuildRequires:	pkgconfig(libdrm) >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.12
 BuildRequires:	x11-util-macros >= 1.0.1
-BuildRequires:	GL-devel
+BuildRequires:	pkgconfig(gl)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
 Requires:		udev
