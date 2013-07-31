@@ -16,6 +16,8 @@ Release:	0.%snapshot.%rel
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
 %endif
+Patch0:		0001-nouveau-fix-build-on-ppc-by-wrapping-immintrin-inclu.patch
+Patch1:		0002-nouveau-add-gpu-identifier-to-connector-names-for-se.patch
 Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
@@ -51,6 +53,7 @@ for NVIDIA cards.
 %else
 %setup -q -n %upname-%version
 %endif
+%apply_patches
 [ -e autogen.sh ] && ./autogen.sh
 
 
