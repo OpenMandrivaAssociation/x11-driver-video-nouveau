@@ -38,7 +38,6 @@ Requires:	kmod(nouveau)
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 # No firmware needed:
 Obsoletes:	nouveau-firmware < 20091212-2
-Patch0:		disable_libdrv_version_check.patch
 
 %description
 The nouveau project aims to build high-quality, open source drivers
@@ -51,8 +50,7 @@ for NVIDIA cards.
 %setup -q -n %upname-%version
 %endif
 [ -e autogen.sh ] && ./autogen.sh
-%patch0 -p1
-autoreconf -vif
+
 
 %build
 %configure2_5x --disable-dependency-tracking
