@@ -2,6 +2,8 @@
 %define	snapshot %nil
 %define	rel 1
 
+%define _disable_ld_no_undefined 1
+
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
 Version:	1.0.9
