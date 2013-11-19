@@ -6,7 +6,7 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.9
+Version:	1.0.10
 %if "%snapshot" == ""
 Release:	%rel
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
@@ -16,8 +16,6 @@ Release:	0.%snapshot.%rel
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
 %endif
-Patch0:		0001-nouveau-fix-build-on-ppc-by-wrapping-immintrin-inclu.patch
-Patch1:		0002-nouveau-add-gpu-identifier-to-connector-names-for-se.patch
 Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
