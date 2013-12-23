@@ -1,6 +1,6 @@
 %define	upname xf86-video-nouveau
 %define	snapshot %nil
-%define	rel 1
+%define	rel 2
 
 %define _disable_ld_no_undefined 1
 
