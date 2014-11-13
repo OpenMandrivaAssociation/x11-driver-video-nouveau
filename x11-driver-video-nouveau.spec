@@ -1,6 +1,6 @@
 %define	upname xf86-video-nouveau
 %define	snapshot %nil
-%define	rel 2
+%define	rel 3
 
 %define _disable_ld_no_undefined 1
 
@@ -40,6 +40,11 @@ Requires:	kmod(nouveau)
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 # No firmware needed:
 Obsoletes:	nouveau-firmware < 20091212-2
+
+# (tpg) these are needed to get vdpau works out of box
+Requires:	%{_lib}dri-drivers-nouveau
+Requires:	%{_lib}vdpau-driver-nouveau
+Requires:	vaapi-driver-vdpau
 
 %description
 The nouveau project aims to build high-quality, open source drivers
