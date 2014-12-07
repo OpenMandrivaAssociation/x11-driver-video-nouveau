@@ -1,6 +1,6 @@
 %define	upname xf86-video-nouveau
 %define	snapshot %nil
-%define	rel 3
+%define	rel 4
 
 %define _disable_ld_no_undefined 1
 
@@ -24,6 +24,7 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.12
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glamor)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
 Requires:		udev
@@ -61,7 +62,7 @@ for NVIDIA cards.
 
 
 %build
-%configure2_5x --disable-dependency-tracking
+%configure --disable-dependency-tracking
 %make
 
 %install
