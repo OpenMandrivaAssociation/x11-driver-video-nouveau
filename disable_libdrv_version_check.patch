@@ -1,11 +1,9 @@
-diff --git a/configure.ac b/configure.ac
-index 4861608..47052f7 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -67,7 +67,7 @@ XORG_DRIVER_CHECK_EXT(XV, videoproto)
- XORG_DRIVER_CHECK_EXT(DPMSExtension, xextproto)
+--- xf86-video-nouveau-1.0.11/configure.ac~	2014-09-03 21:29:04.000000000 +0200
++++ xf86-video-nouveau-1.0.11/configure.ac	2015-02-08 17:00:48.698767929 +0100
+@@ -81,7 +81,7 @@ XORG_DRIVER_CHECK_EXT(DRI2, [dri2proto >
  
  # Checks for pkg-config packages
+ PKG_CHECK_MODULES(LIBDRM, [libdrm >= 2.4.17])
 -PKG_CHECK_MODULES(LIBDRM_NOUVEAU, [libdrm_nouveau >= 2.4.25])
 +PKG_CHECK_MODULES(LIBDRM_NOUVEAU, [libdrm_nouveau])
  AC_SUBST(LIBDRM_NOUVEAU_CFLAGS)

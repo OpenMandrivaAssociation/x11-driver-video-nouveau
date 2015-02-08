@@ -1,6 +1,6 @@
 %define	upname xf86-video-nouveau
 %define	snapshot %nil
-%define	rel 4
+%define	rel 5
 
 %define _disable_ld_no_undefined 1
 
@@ -16,6 +16,7 @@ Release:	0.%snapshot.%rel
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
 %endif
+Patch3:		disable_libdrv_version_check.patch
 Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
@@ -26,7 +27,7 @@ BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
-Requires:		udev
+Requires:	udev
 %else
 BuildRequires:	pkgconfig(udev)
 %endif
@@ -57,11 +58,11 @@ for NVIDIA cards.
 %setup -q -n %upname-%version
 %endif
 %apply_patches
-[ -e autogen.sh ] && ./autogen.sh
+autoreconf -fiv
 
 
 %build
-%configure --disable-dependency-tracking
+%configure
 %make
 
 %install
