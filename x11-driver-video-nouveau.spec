@@ -1,6 +1,6 @@
 %define	upname xf86-video-nouveau
 %define	snapshot %nil
-%define	rel 5
+%define	rel 6
 
 %define _disable_ld_no_undefined 1
 
@@ -22,7 +22,7 @@ License:	MIT
 URL:		http://nouveau.freedesktop.org/
 BuildRequires:	pkgconfig(libdrm) >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
-BuildRequires:	x11-server-devel >= 1.12
+BuildRequires:	x11-server-devel >= 1.18
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
 %if %mdvver >= 201200
