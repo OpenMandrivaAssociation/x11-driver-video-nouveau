@@ -11,7 +11,7 @@ Version:	1.0.11
 Release:	%rel
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
 %else
-Release:	0.%snapshot.%rel
+Release:	6.%snapshot.%rel
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
@@ -25,14 +25,10 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.18
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
-%if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
-Requires:	udev
-%else
-BuildRequires:	pkgconfig(udev)
-%endif
 BuildRequires:	libdrm-common
-Conflicts:		xorg-x11-server < 7.0
+Requires:	udev
+Conflicts:	xorg-x11-server < 7.0
 # No DKMS package for now; nouveau module is in main kernel.
 # If needed, DKMS package may be resurrected, but work is needed to make it
 # build with the new linux-2.6 tree of nouveau.
@@ -45,7 +41,6 @@ Obsoletes:	nouveau-firmware < 20091212-2
 Requires:	%{_lib}dri-drivers-nouveau
 Requires:	%{_lib}vdpau-driver-nouveau
 Requires:	vaapi-driver-vdpau
-
 
 %description
 The nouveau project aims to build high-quality, open source drivers
