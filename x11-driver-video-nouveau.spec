@@ -16,7 +16,6 @@ Release:	6.%snapshot.%rel
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
 %endif
-Patch3:		disable_libdrv_version_check.patch
 Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
