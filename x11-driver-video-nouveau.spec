@@ -1,6 +1,6 @@
 %define	upname xf86-video-nouveau
-%define	snapshot %nil
-%define	rel 6
+%define	snapshot 20151122
+%define	rel 1
 
 %define _disable_ld_no_undefined 1
 
@@ -59,7 +59,6 @@ for NVIDIA cards.
 %endif
 %apply_patches
 autoreconf -fiv
-
 
 %build
 %configure
