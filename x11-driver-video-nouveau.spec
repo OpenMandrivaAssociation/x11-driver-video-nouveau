@@ -1,5 +1,5 @@
 %define	upname xf86-video-nouveau
-%define	snapshot 20151122
+%define	snapshot 20151201
 %define	rel 1
 
 %define _disable_ld_no_undefined 1
