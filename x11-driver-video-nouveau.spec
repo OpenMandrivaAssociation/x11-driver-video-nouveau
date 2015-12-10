@@ -1,17 +1,17 @@
 %define	upname xf86-video-nouveau
-%define	snapshot 20151201
+%define	snapshot %{nil}
 %define	rel 1
 
 %define _disable_ld_no_undefined 1
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.11
+Version:	1.0.12
 %if "%snapshot" == ""
 Release:	%rel
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
 %else
-Release:	6.%snapshot.%rel
+Release:	1.%snapshot.%rel
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
 # git archive --prefix=xf86-video-nouveau-$(date +%Y%m%d)/ --format=tar HEAD | xz > ../xf86-video-nouveau-$(date +%Y%m%d).tar.xz
 Source0:	%{upname}-%{snapshot}.tar.xz
