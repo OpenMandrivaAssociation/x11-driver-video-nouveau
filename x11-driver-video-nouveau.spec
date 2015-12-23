@@ -6,7 +6,7 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.11
+Version:	1.0.12
 %if "%snapshot" == ""
 Release:	%rel
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
@@ -27,12 +27,12 @@ BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glamor)
 %if %mdvver >= 201200
 BuildRequires:	pkgconfig(udev) >= 186
-Requires:		udev
+Requires:	udev
 %else
 BuildRequires:	pkgconfig(udev)
 %endif
 BuildRequires:	libdrm-common
-Conflicts:		xorg-x11-server < 7.0
+Conflicts:	xorg-x11-server < 7.0
 # No DKMS package for now; nouveau module is in main kernel.
 # If needed, DKMS package may be resurrected, but work is needed to make it
 # build with the new linux-2.6 tree of nouveau.
