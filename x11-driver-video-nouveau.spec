@@ -1,6 +1,6 @@
 %define	upname xf86-video-nouveau
 %define	snapshot %{nil}
-%define	rel 3
+%define	rel 4
 
 %define _disable_ld_no_undefined 1
 
@@ -19,6 +19,10 @@ Source0:	%{upname}-%{snapshot}.tar.xz
 Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
+Patch0:		0000-HAS_DIRTYTRACKING_ROTATION-also-supports-multiple-CR.patch
+Patch1:		0001-fix-use-of-out-of-scope-data.patch
+Patch2:		0002-exa-nv50-fix-some-potential-incomplete-pushes.patch
+Patch3:		0003-Properly-cleanup-fb-for-reverse-prime-offload.patch
 BuildRequires:	pkgconfig(libdrm) >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.18
