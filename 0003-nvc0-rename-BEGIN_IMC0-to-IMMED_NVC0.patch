@@ -1,0 +1,29 @@
+From 514441f32c5b948ce87668234ab9f01e8ec28dac Mon Sep 17 00:00:00 2001
+From: Ilia Mirkin <imirkin@alum.mit.edu>
+Date: Sun, 16 Oct 2016 12:42:18 -0400
+Subject: [PATCH 3/6] nvc0: rename BEGIN_IMC0 to IMMED_NVC0
+
+For consistency with mesa. It wasn't used anywhere previously.
+
+Signed-off-by: Ilia Mirkin <imirkin@alum.mit.edu>
+Reviewed-by: Samuel Pitoiset <samuel.pitoiset@gmail.com>
+---
+ src/nouveau_local.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/nouveau_local.h b/src/nouveau_local.h
+index 3de69a2..dd49395 100644
+--- a/src/nouveau_local.h
++++ b/src/nouveau_local.h
+@@ -237,7 +237,7 @@ BEGIN_NIC0(struct nouveau_pushbuf *push, int subc, int mthd, int size)
+ }
+ 
+ static inline void
+-BEGIN_IMC0(struct nouveau_pushbuf *push, int subc, int mthd, int data)
++IMMED_NVC0(struct nouveau_pushbuf *push, int subc, int mthd, int data)
+ {
+ 	PUSH_DATA (push, 0x80000000 | (data << 16) | (subc << 13) | (mthd / 4));
+ }
+-- 
+2.8.3
+

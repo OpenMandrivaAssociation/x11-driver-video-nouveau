@@ -1,0 +1,40 @@
+From 4459c04a6bc208924fac8082920f6786538bc5cd Mon Sep 17 00:00:00 2001
+From: Ilia Mirkin <imirkin@alum.mit.edu>
+Date: Sun, 16 Oct 2016 12:38:38 -0400
+Subject: [PATCH 2/6] nvc0: make use of the new hwdefs for TEX_CB_INDEX
+
+Signed-off-by: Ilia Mirkin <imirkin@alum.mit.edu>
+Reviewed-by: Samuel Pitoiset <samuel.pitoiset@gmail.com>
+---
+ src/nvc0_accel.c | 2 +-
+ src/nvc0_accel.h | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/nvc0_accel.c b/src/nvc0_accel.c
+index 52a17db..0682806 100644
+--- a/src/nvc0_accel.c
++++ b/src/nvc0_accel.c
+@@ -313,7 +313,7 @@ NVAccelInit3D_NVC0(ScrnInfoPtr pScrn)
+ 		PUSH_DATA (push, 0x00000001);
+ 		BEGIN_NVC0(push, NVC0_3D(CB_BIND(4)), 1);
+ 		PUSH_DATA (push, 0x11);
+-		BEGIN_NVC0(push, SUBC_3D(0x2608), 1);
++		BEGIN_NVC0(push, NVE4_3D(TEX_CB_INDEX), 1);
+ 		PUSH_DATA (push, 1);
+ 	}
+ 
+diff --git a/src/nvc0_accel.h b/src/nvc0_accel.h
+index 4c3bb0f..607e97b 100644
+--- a/src/nvc0_accel.h
++++ b/src/nvc0_accel.h
+@@ -12,6 +12,7 @@
+ /* subchannel assignments, compatible with kepler's fixed layout  */
+ #define SUBC_3D(mthd)    0, (mthd)
+ #define NVC0_3D(mthd)    SUBC_3D(NVC0_3D_##mthd)
++#define NVE4_3D(mthd)    SUBC_3D(NVE4_3D_##mthd)
+ #define SUBC_M2MF(mthd)  2, (mthd)
+ #define SUBC_P2MF(mthd)  2, (mthd)
+ #define NVC0_M2MF(mthd)  SUBC_M2MF(NVC0_M2MF_##mthd)
+-- 
+2.8.3
+
