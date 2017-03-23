@@ -5,9 +5,9 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.13
+Version:	1.0.14
 %if "%snapshot" == ""
-Release:	3
+Release:	1
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
 %else
 Release:	1.%snapshot.1
@@ -18,14 +18,6 @@ Source0:	%{upname}-%{snapshot}.tar.xz
 Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
-Patch0:		0000-exa-add-GM10x-acceleration-support.patch
-Patch1:		0001-hwdefs-update-nvc0_3d-add-gm107_texture-for-new-TIC-.patch
-Patch2:		0002-nvc0-make-use-of-the-new-hwdefs-for-TEX_CB_INDEX.patch
-Patch3:		0003-nvc0-rename-BEGIN_IMC0-to-IMMED_NVC0.patch
-Patch4:		0004-nvc0-refactor-TIC-uploads-to-allow-different-specifi.patch
-Patch5:		0005-copy-add-maxwell-pascal-copy-engine-classes.patch
-Patch6:		0006-recognize-and-accelerate-GM20x.patch
-
 BuildRequires:	pkgconfig(libdrm) >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-server-devel >= 1.18
