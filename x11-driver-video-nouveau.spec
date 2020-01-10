@@ -49,7 +49,7 @@ for NVIDIA cards.
 %else
 %setup -q -n %upname-%version
 %endif
-%apply_patches
+%autopatch -p1
 autoreconf -fiv
 
 %build
