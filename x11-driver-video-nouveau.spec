@@ -1,5 +1,5 @@
-%define	upname xf86-video-nouveau
-%define	snapshot %{nil}
+%define upname xf86-video-nouveau
+%define snapshot %{nil}
 
 %define _disable_ld_no_undefined 1
 
@@ -7,7 +7,7 @@ Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
 Version:	1.0.17
 %if "%snapshot" == ""
-Release:	2
+Release:	3
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
 %else
 Release:	1.%snapshot.1
@@ -18,9 +18,12 @@ Source0:	%{upname}-%{snapshot}.tar.xz
 Group:		System/X11
 License:	MIT
 URL:		http://nouveau.freedesktop.org/
+Patch1:		0001-nouveau-fixup-driver-for-new-X-server-ABI.patch
+Patch2:		0002-remove-sarea.h-usage.patch
+
 BuildRequires:	pkgconfig(libdrm) >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
-BuildRequires:	x11-server-devel >= 1.18
+BuildRequires:	pkgconfig(xorg-server) >= 1.19
 BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(udev) >= 186
@@ -61,4 +64,4 @@ autoreconf -fiv
 
 %files
 %{_libdir}/xorg/modules/drivers/nouveau_drv.so
-%{_mandir}/man4/nouveau*
+%doc %{_mandir}/man4/nouveau*
