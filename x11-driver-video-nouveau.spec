@@ -17,7 +17,7 @@ Source0:	%{upname}-%{snapshot}.tar.xz
 %endif
 Group:		System/X11
 License:	MIT
-URL:		http://nouveau.freedesktop.org/
+URL:		https://nouveau.freedesktop.org/
 Patch1:		0001-nouveau-fixup-driver-for-new-X-server-ABI.patch
 Patch2:		0002-remove-sarea.h-usage.patch
 
