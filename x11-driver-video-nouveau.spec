@@ -5,10 +5,10 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.17
+Version:	1.0.18
 %if "%snapshot" == ""
-Release:	4
-Source0:	http://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.bz2
+Release:	1
+Source0:	https://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.xz
 %else
 Release:	1.%snapshot.1
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
@@ -18,8 +18,6 @@ Source0:	%{upname}-%{snapshot}.tar.xz
 Group:		System/X11
 License:	MIT
 URL:		https://nouveau.freedesktop.org/
-Patch1:		0001-nouveau-fixup-driver-for-new-X-server-ABI.patch
-Patch2:		0002-remove-sarea.h-usage.patch
 
 BuildRequires:	pkgconfig(libdrm) >= 2.4.35
 BuildRequires:	x11-proto-devel >= 1.0.0
