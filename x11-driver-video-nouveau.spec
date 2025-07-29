@@ -40,7 +40,7 @@ Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Obsoletes:	nouveau-firmware < 20091212-2
 # (tpg) these are needed to get vdpau works out of box
 Requires:	%{_lib}dri-drivers
-Requires:	%{_lib}vdpau-driver
+Requires:	%{_lib}vdpau-drivers
 
 %description
 The nouveau project aims to build high-quality, open source drivers
