@@ -5,10 +5,12 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.18
+Version:	1.0.18.1
 %if "%snapshot" == ""
 Release:	1
-Source0:	https://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.xz
+# Use maintainded Xlibre version instead of deprecated freedesktop
+Source0:  https://github.com/X11Libre/xf86-video-nouveau/archive/xlibre-xf86-video-nouveau-%{version}.tar.gz
+#Source0:	https://xorg.freedesktop.org/archive/individual/driver/%{upname}-%{version}.tar.xz
 %else
 Release:	1.%snapshot.1
 # rm -rf xf86-video-nouveau && git clone git://anongit.freedesktop.org/git/nouveau/xf86-video-nouveau/ && cd xf86-video-nouveau/
@@ -37,8 +39,8 @@ Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 # No firmware needed:
 Obsoletes:	nouveau-firmware < 20091212-2
 # (tpg) these are needed to get vdpau works out of box
-Requires:	%{_lib}dri-drivers-nouveau
-Requires:	%{_lib}vdpau-driver-nouveau
+Requires:	%{_lib}dri-drivers
+Requires:	%{_lib}vdpau-drivers
 
 %description
 The nouveau project aims to build high-quality, open source drivers
@@ -48,7 +50,7 @@ for NVIDIA cards.
 %if "%snapshot" != ""
 %setup -q -n %{upname}-%{snapshot}
 %else
-%setup -q -n %upname-%version
+%autosetup -n xf86-video-nouveau-xlibre-xf86-video-nouveau-%{version} -p1
 %endif
 %autopatch -p1
 autoreconf -fiv
