@@ -63,5 +63,5 @@ autoreconf -fiv
 %make_install
 
 %files
-%{_libdir}/xorg/modules/drivers/nouveau_drv.so
+%{_libdir}/xorg/modules/xlibre-*.*/drivers/nouveau_drv.so
 %doc %{_mandir}/man4/nouveau*
