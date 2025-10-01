@@ -5,7 +5,7 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.18.1
+Version:	1.0.18.3
 %if "%snapshot" == ""
 Release:	1
 # Use maintainded Xlibre version instead of deprecated freedesktop
