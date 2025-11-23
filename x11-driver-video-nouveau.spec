@@ -5,7 +5,7 @@
 
 Summary:	Accelerated open source driver for NVIDIA cards
 Name:		x11-driver-video-nouveau
-Version:	1.0.18.3
+Version:	1.0.18.4
 %if "%snapshot" == ""
 Release:	2
 # Use maintainded Xlibre version instead of deprecated freedesktop
@@ -28,6 +28,9 @@ BuildRequires:	x11-util-macros >= 1.0.1
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(udev) >= 186
 BuildRequires:	libdrm-common
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildSystem:	autotools
 Requires:	udev
 Conflicts:	xorg-x11-server < 7.0
 # No DKMS package for now; nouveau module is in main kernel.
@@ -45,21 +48,8 @@ Requires:	%{_lib}dri-drivers
 The nouveau project aims to build high-quality, open source drivers
 for NVIDIA cards.
 
-%prep
-%if "%snapshot" != ""
-%setup -q -n %{upname}-%{snapshot}
-%else
-%autosetup -n xf86-video-nouveau-xlibre-xf86-video-nouveau-%{version} -p1
-%endif
-%autopatch -p1
+%prep -a
 autoreconf -fiv
-
-%build
-%configure
-%make_build
-
-%install
-%make_install
 
 %files
 %{_libdir}/xorg/modules/xlibre-*.*/drivers/nouveau_drv.so
